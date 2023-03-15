@@ -8,3 +8,8 @@ I think I've already set up configuration for connecting with GitHub from VSCode
 
 I realised that README.txt is printed in GitHub, so I've switched to another file for keeping track.
 I made an .gitignore and tested it with success. I'll create a venv and add it to ignored files. 
+
+I wanted to make a last change by installing pygame and updating requirements.txt. 
+I couldn't push with Git, and realised that I'd already switched branches.
+To my amazement, with requirements.txt open, I can see the content change when I switch branches through console.
+I'll set upstream for my new branch 1.level, named after the folder in the original project (https://github.com/clear-code-projects/Zelda)
