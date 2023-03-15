@@ -1,0 +1,10 @@
+I'll keep the devlog.txt open as a devlog / notepad.
+
+# Setting up GitHub
+The first thing that I'll try to do is push this README onto github and switch to a branch. 
+After the first part of the tutorial is done I'll merge to main.
+One problem that might emerge is excluding the virtual environment from the commit. I'll be experimenting with .gitignore.
+I think I've already set up configuration for connecting with GitHub from VSCode, so I'll be good to go.
+
+I realised that README.txt is printed in GitHub, so I've switched to another file for keeping track.
+I made an .gitignore and tested it with success. I'll create a venv and add it to ignored files. 
