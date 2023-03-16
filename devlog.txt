@@ -13,3 +13,61 @@ I wanted to make a last change by installing pygame and updating requirements.tx
 I couldn't push with Git, and realised that I'd already switched branches.
 To my amazement, with requirements.txt open, I can see the content change when I switch branches through console.
 I'll set upstream for my new branch 1.level, named after the folder in the original project (https://github.com/clear-code-projects/Zelda)
+
+--
+15-03-2023 #1
+--
+1. Level
+
+I've created main.py with a class Game.
+In Game pygame is initialized. A screen and clock are properties.
+One method is currently written, run(), which is the main loop.
+run() currently does four things:
+1. run() checks for event.type == pygame.QUIT through pygame.event.get().
+2. the display is filled with black
+3. the update method for the display is called
+4. the clock ticks
+
+Screen properties are taken from settings.py, where currently width and heigth are hardcoded, alongside a map.
+
+At the end of the script we get: 
+if __name__ == '__main__':  # when main.py is called:
+    game = Game()           # create an object from Game()
+    game.run()              # call method run() from game
+
+I'm just writing all this stuff down since I'm new to OOP, and this is my way of teaching myself.
+Coming up is a simple debugging tool.
+
+Changed display caption to 'Zelda'. 
+I noticed that I'm one line off already with the tutorial. This is because I insisted to import pygame as pg.
+Corrected the number of lines by removing a comment stating # general setup. Seemed rather superfluous anyway.
+
+If I'm understanding correctly we're going to create seperate groups. Each sprite can belong to multiple groups. 
+Within the groups certain behaviour are described. 
+Depending on which groups a sprite belongs to it can exhibit behaviour such as being visible or being an obstacle.
+
+Three new files are created, level.py, tile.py and player.py, each containing one class. 
+tile.py and player.py describe two different sprites.
+tile.py contains a rock, player.py contains the player.
+Within settings we find a map which contains three different entries: rock ('x'), player('p') and empty space(' ').
+The third file, level.py, is the most interesting right now. It contains a class, Level, which loads all the sprites.
+The drawing and updating of the sprites is also executed within Level with the method run().
+Level needs to be drawn to the screen, so we get the display surface with self.display_surface = pygame.display.get_surface. I'm a bit iffy about how that works tho.
+main.py is updated to import Level as a property, then our main loop calls level.run().
+
+We've created a neat few lines which scans the WORLD_MAP in settings, and when 'x' or 'p' draw rock or player to display_surface.
+This is a method in Level, which is called during initialization of the Level class.
+I'm coding along, but I keep bumping into little things I couldn't predict. I'll try to dissect what happened.
+visible_sprites is a property of Level. It inherits from the Group() class in pygame.sprite. 
+When I'm creating classes for the game, i.e. rock, I'm adding groups(note:plural) as an argument to be passed when calling the Tile() class.
+Tile() is a class that inherits from the Sprite() class in pygame.sprite.
+In the script a Tile() is called with a group in the parameter. if 'x' -> Tile((x, y), [self.visible_sprites])
+Level() contains method run(), in which we'll draw members from visible_sprites. I'll write it out in full:
+def run(self):
+    self.visible_sprites.draw(self.display_screen)
+I first attempted to simply give 'self' as argument, but that returned an error, saying that 'Level'obj has no blit.
+But giving self.display_screen did work. I guess the blit is stored in display_screen as a property which cannot be read directly?
+
+I think I know what's happening, but I don't want to be 80% sure. Guess I'll read up on Sprite() and Group() in the pygame docs.
+I'll also ask ChatGTP about OOP nomenclature, since I'm not even sure if I'm describing certain terms correctly in this document. 
+I'll commit and push to GitHub. I'm at 26:45. Might continue a bit later after reading, chatting and walking with Shadow, might go to bed.
