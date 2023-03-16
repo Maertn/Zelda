@@ -15,7 +15,7 @@ To my amazement, with requirements.txt open, I can see the content change when I
 I'll set upstream for my new branch 1.level, named after the folder in the original project (https://github.com/clear-code-projects/Zelda)
 
 --
-15-03-2023 #1
+2023-03-15 #1
 --
 1. Level
 
@@ -71,3 +71,13 @@ But giving self.display_screen did work. I guess the blit is stored in display_s
 I think I know what's happening, but I don't want to be 80% sure. Guess I'll read up on Sprite() and Group() in the pygame docs.
 I'll also ask ChatGTP about OOP nomenclature, since I'm not even sure if I'm describing certain terms correctly in this document. 
 I'll commit and push to GitHub. I'm at 26:45. Might continue a bit later after reading, chatting and walking with Shadow, might go to bed.
+
+--
+2023-16-03 #1
+--
+I finished a crash course on OOP. Also looked into the pygame docs regarding sprites. 
+I've learned that I can simply call doc to see the description of a class. Might save some time.
+
+Struggled a bit to include __pycache__ in .gitignore. Got it working tho by leaving out the "/" at the end, which is common for folders.
+Finished the first part of the tutorial. Succesfuly merged the 1.level branch with master, and created a new branch, 2.setup.
+I'm currently at 28:37, where the second part of the tutorial starts.
