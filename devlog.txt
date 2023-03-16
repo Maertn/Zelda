@@ -86,3 +86,25 @@ I'm currently at 28:37, where the second part of the tutorial starts.
 --
 The different parts of the tutorial aren't clearly marked, so I messed up with regard to matching the branches to
 different parts. I'll just save, push, merge, and create a new branch called 3.move. 
+
+#3
+--
+Gave Player the ability to detect key presses. The sprite doesn't update it's position tho, at least not visually. This is slightly
+confusing since the player does have a position. I think I understand it now; Player has directions, which is a Vector2 from pg.math.
+The directions are read, but they aren't integrated to the Player's position.
+Also created the debugger.
+
+#4
+--
+Finished the third part. Input with keys gives the player a direction. The player multiplies this direction with a constant to
+acquire speed. The speed results in a movement over x and y. Corrected for diagonal movement giving a sqrt(2) mulitplier.
+Collision with obstacles is handled within the Player class through the methods for movement described above.
+If the player moves towards the right, the collision detector will keep placing the player's right to the obstacle's left.
+This wouldn't work for a moving 'obstacle', say a monster. At least from what I gather from the code, moving to the right
+but being intercepted from the left, e.g. a fast moving enemy, will cause this collision detector to place the player to the left of the
+enemy, effectively teleporting the player. I can only assume that when enemies are added either the collision detector will be updated,
+or another method detecting collision will be created within the enemy classes.
+I'd also like to comment that I expected collision to be handled outside of the Player, since collision detection should be
+applicable to NPCs as well. Oh well, it'll probably be accounted for as we go along.
+
+I'll push this branch to GitHub, and start branch 4.camera&ysort. Feels like it's coming along nicely.
