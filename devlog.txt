@@ -81,3 +81,8 @@ I've learned that I can simply call doc to see the description of a class. Might
 Struggled a bit to include __pycache__ in .gitignore. Got it working tho by leaving out the "/" at the end, which is common for folders.
 Finished the first part of the tutorial. Succesfuly merged the 1.level branch with master, and created a new branch, 2.setup.
 I'm currently at 28:37, where the second part of the tutorial starts.
+
+#2
+--
+The different parts of the tutorial aren't clearly marked, so I messed up with regard to matching the branches to
+different parts. I'll just save, push, merge, and create a new branch called 3.move. 
