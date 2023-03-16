@@ -73,7 +73,8 @@ I'll also ask ChatGTP about OOP nomenclature, since I'm not even sure if I'm des
 I'll commit and push to GitHub. I'm at 26:45. Might continue a bit later after reading, chatting and walking with Shadow, might go to bed.
 
 --
-2023-16-03 #1
+2023-16-03
+#1
 --
 I finished a crash course on OOP. Also looked into the pygame docs regarding sprites. 
 I've learned that I can simply call doc to see the description of a class. Might save some time.
@@ -108,3 +109,41 @@ I'd also like to comment that I expected collision to be handled outside of the 
 applicable to NPCs as well. Oh well, it'll probably be accounted for as we go along.
 
 I'll push this branch to GitHub, and start branch 4.camera&ysort. Feels like it's coming along nicely.
+
+#5
+--
+Discovered that merging from my terminal doesn't work in GitHub, for some reason. Maybe I need to push one last time before deleting the 
+branch? I merged manually through the browser. As a result, master doesn't contain the merges with 2. and 3., but the branches do
+exist individually in GitHub. Merging them now would be redundant, and I could always call on the branches themselves, since I'm probably
+not deleting them.
+
+Turns out that the name of the branch has to be 4.camera, since GitHub doesn't allow ampersand in the name. 
+In this part we'll be working with pygame's group system, which is very interesting to me, since I've read some documentation 
+regarding the Sprite class.
+
+#6
+--
+We've got a working camera. The geometry is a bit weird tho.
+We created a class called YSortCameraGroup. This group is passed to visible_sprites.
+visible_sprites used to be a pg.sprite.Sprite.Group(), so it isn't surprising that YSortCameraGroup 
+inherits from that class.
+Inside that class a custom_draw method is created. It takes the sprites in the class and draws them on the display.
+When drawing the sprites an offset is given. This offset makes sure that the camera stays on the player, and places the player
+in the center of the display. First we create an empty pg.math.Vector2() inside YSortCameraGroup, named self.offset, 
+and then we declare self.offset.x = player.rect.centerx - self.half_width. Similar for self.offset.y.
+We give the custom_draw the topleft of a sprite and adjust with self.offset to determine the position to draw.
+
+Most importantly, it works. And it works beautifully. I like how smooth the animation is, while I expected something more discrete.
+Thinking back, we did set the tiles to be drawn at distances of 64. Hence the player sprite moves over the 64*64 pixel grid, instead
+of moving from grid to grid discretely, as would be the case in an older roguelike.
+
+I'm already thinking about a camera that would snap to enemies, like CDDA. This way you could inspect enemies that are outside
+the display but within the players FOV, should one decide to work with such a feature.
+
+#7
+--
+Done with the 4th part. We've created a camera, as mentioned. We used YSortCameraGroup to track the player across the map.
+We've upgraded the YSortCameraGroup to sort over the y axis, checking which object comes first. After creating a list,
+the sprites will be drawn in order, so an illusion of depth is created. To make use of this addition, we create an attribute
+called hitbox, which'll be self.rect - some of the top and bottom y. Now objects can overlap each other, and we see the player partly
+'disappear' behind rocks. Pretty neat.
