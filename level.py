@@ -11,7 +11,7 @@ class Level:
 
         #sprite group setup
         self.visible_sprites = pg.sprite.Group()
-        self.obstacles_sprites = pg.sprite.Group()
+        self.obstacle_sprites = pg.sprite.Group()
 
         #sprite setup
         self.create_map()
@@ -22,8 +22,9 @@ class Level:
                 x = col_index * TILESIZE
                 y = row_index * TILESIZE
                 if col == 'x':
-                    Tile((x, y), [self.visible_sprites])
-                #if col == 'p':
+                    Tile((x, y), [self.visible_sprites, self.obstacle_sprites])
+                if col == 'p':
+                    Player((x,y), [self.visible_sprites])
 
 
 
