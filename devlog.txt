@@ -147,3 +147,9 @@ We've upgraded the YSortCameraGroup to sort over the y axis, checking which obje
 the sprites will be drawn in order, so an illusion of depth is created. To make use of this addition, we create an attribute
 called hitbox, which'll be self.rect - some of the top and bottom y. Now objects can overlap each other, and we see the player partly
 'disappear' behind rocks. Pretty neat.
+
+#8
+--
+In the next part we'll use Tiled. I'm not sure if it's a module connected to pygame, or independent.
+It might pay off to watch a seperate tutorial (which is another 2 hours) devoted to the software. I'm probably done for today in
+following the Zelda tutorial, but I might be able to finish the tutorial on Tiled.
