@@ -40,7 +40,7 @@ class Level:
                             Tile((x, y), [self.obstacle_sprites], 'invisible')
                         if style == 'grass':
                             random_grass_image = choice(graphics['grass'])
-                            Tile((x,y), [self.visible_sprites, self.obstacle_sprites], 'grass', random_grass_image)
+                            Tile((x,y), [self.visible_sprites], 'grass', random_grass_image)#!! removed grass from the obstacle_sprites.
                         if style == 'object':
                             surf = graphics['objects'][int(col)]
                             Tile((x,y), [self.visible_sprites, self.obstacle_sprites], 'object', surf)

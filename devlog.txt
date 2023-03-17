@@ -252,4 +252,18 @@ Found the use of sprite_type in the Tile class. Objects are larger, so we want t
 When setting up how to draw the tiles we can use this property to sort for objects, which can then be handled somewhat differently.
 Understanding CSV is enough to understand the basic function of Tiled for this project, so that's good as well.
 The only line that remains somewhat obscure to me is the lambda, but only somewhat since I understand its operation.
-Understanding isn't creation just yet, but that'll be for the next project.  
+Understanding isn't creation just yet, but that'll be for the next project.
+
+#3
+--
+We added animations to the player object. We list the states the player can be in (up, down, right, left) * (idle, moving, attacking).
+We define this attribute in the player, and check with the debugger if we get the correct state.
+We have three images corresponding to each state which we want to loop if we find the player in that state to create animations.
+We make a frame_index which increments with 0.15 per frame. If frame_index > 1, we change the sprite to the next frame in the animation.
+We make sure that if frame_index > number of images, then frame_index = 0 to prevent overflow.
+
+Aside from working on the tutorial I was looking up software to create sprites and animations.
+I decided to use Pixel Studio, on the merit of it being free, while offering the basic utilities.
+Creating pixel art shouldn't be that hard in a technical sense, but it does require practice and a lot of trial and error.
+Unless I find myself enjoying creating pixel art it'll be difficult to obtain a custom crafted tileset. Only time will tell.
+If I don't find myself enjoying creating pixel art I can always obtain free sets from the internet.
