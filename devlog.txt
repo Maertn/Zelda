@@ -176,3 +176,12 @@ The program seems intuitive enough, and since I have it installed now I can cont
 If I'm having a hard time understanding the usage of Tiled in the tutorial I can always revisit the dedicated tutorial for Tiled.
 Seems like we'll be importing the map in this section, so I'm looking forward to having some nice visuals to look at next time
 I boot the program.
+
+#10
+--
+It's quite late. I've added tilesets that draw the map, objects, grass and boundaries.
+It was quite complicated after all. I've been working with csv, but I have no idea what that entails.
+I've copied a lot of code, but didn't process properly what happens in it. I got the gist of it, but I'll have to return
+tomorrow to really interpret what happened here. Guess I'll have to watch that dedicated Tiled tutorial after all. At least
+I'll have some background as to what to look out for. There's clearly no point in pushing on now. I'll write more about the
+drawing of graphics tomorrow.  I've already merged the branches, so I'll set up the 6th branch to push the devlog.
