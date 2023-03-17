@@ -245,3 +245,11 @@ but rather because I've been busy for a while now. It's a bit frustrating that h
 explain all that well, whereas the project as a whole is becoming so large it's becoming increasingly difficult to keep track of all its
 moving parts. The second part is fun, but the first part is detracting from that besides being a nuasance in its own right.
 All in all, guess this level of understanding is sufficient to continue for now.
+
+#2
+--
+Found the use of sprite_type in the Tile class. Objects are larger, so we want to handle them diferently from other tiles.
+When setting up how to draw the tiles we can use this property to sort for objects, which can then be handled somewhat differently.
+Understanding CSV is enough to understand the basic function of Tiled for this project, so that's good as well.
+The only line that remains somewhat obscure to me is the lambda, but only somewhat since I understand its operation.
+Understanding isn't creation just yet, but that'll be for the next project.  
