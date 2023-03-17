@@ -153,3 +153,26 @@ called hitbox, which'll be self.rect - some of the top and bottom y. Now objects
 In the next part we'll use Tiled. I'm not sure if it's a module connected to pygame, or independent.
 It might pay off to watch a seperate tutorial (which is another 2 hours) devoted to the software. I'm probably done for today in
 following the Zelda tutorial, but I might be able to finish the tutorial on Tiled.
+
+#9
+--
+I forgot to note that in the custom_draw method in Level we sort by changing a for loop to be:
+"for sprite in sorted(self.sprites(), key = lambda sprite: sprite.rect.centery):"
+I don't really know how the sorted function works, nor do I understand the lambda function.
+I know lambda is a thing where you write a small throw-away function, but that doesn't mean that I'm able
+to interpret this line. I do know that this loop gets edited to sort for y positions. 
+I'll give it my best shot. We're itterating over self.sprites(), which are all the sprites contained in the level.
+For each sprite found we're calling custom_draw to draw the sprite to the display.
+self.sprites() isn't explicitly declared in the code, so it must be a method contained in pg.sprite.Group(), which our
+YSortCameraGroup class inherits from. When printing self.sprites() we see [] in the return. Since we're
+atm using YSortCameraGroup exclusively to declare visible_sprites, and the fact that we know the purpose of the function,
+we can be certain in describing self.sprites() to return a list containing the sprites that are declared to be visible_sprites.
+The function sorted takes (in this case) two arguments: 1. the list to be sorted, and 2. a key that is used to determine which 
+attribute is sorted by. We are sorting by a value for y, which explains the mention of sprite.rect.centery. 
+Why "lambda sprite: " needs to be given will remain a mystery for now.
+
+The Tiled tutorial was somewhat useful. I watched about 30 minutes of the 120, but I felt like I got the gist of it.
+The program seems intuitive enough, and since I have it installed now I can continue the Zelda tutorial.
+If I'm having a hard time understanding the usage of Tiled in the tutorial I can always revisit the dedicated tutorial for Tiled.
+Seems like we'll be importing the map in this section, so I'm looking forward to having some nice visuals to look at next time
+I boot the program.
