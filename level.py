@@ -43,7 +43,7 @@ class Level:
                             Tile((x,y), [self.visible_sprites, self.obstacle_sprites], 'grass', random_grass_image)
                         if style == 'object':
                             surf = graphics['objects'][int(col)]
-                            Tile((x,y), [self.visible_sprites, self.obstacle_sprites], 'object',surf)
+                            Tile((x,y), [self.visible_sprites, self.obstacle_sprites], 'object', surf)
 
         self.player = Player((2000,1430), [self.visible_sprites], self.obstacle_sprites)
 

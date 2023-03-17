@@ -185,3 +185,63 @@ I've copied a lot of code, but didn't process properly what happens in it. I got
 tomorrow to really interpret what happened here. Guess I'll have to watch that dedicated Tiled tutorial after all. At least
 I'll have some background as to what to look out for. There's clearly no point in pushing on now. I'll write more about the
 drawing of graphics tomorrow.  I've already merged the branches, so I'll set up the 6th branch to push the devlog.
+
+--
+2023-03-17
+#1
+--
+Let's dissect what happened in the previous session where we created graphics.
+We use the Tiled editor. In the editor we have several layers, such as ground, details and objects.
+One of those layers is FloorBlocks, which is used to set up boundaries around the map.
+I'm unsure on how to compile a few but not all  layers into a file, but that would become clear if I watch the Tiled tutorial.
+
+Since we're sorting surfaces by y, we need to place the ground on the lowest y-value.
+We create the floor_surf and floor_rect inside the YSortCameraGroup.
+We already had a world set up in settings.py. Since we're declaring the ground seperately, we can remove that code.
+The only thing that we're currently drawing is an image of the map, and we also want to draw our plyer.
+
+We're going to expand the functionality of the Tile group. Currently we only have rocks. 
+We need it to accept graphics which can be of various sizes as is the case with certain objects.
+Tile also should be able to accept no graphics at all, which will be used to set up the boundaries.
+Tile has self, pos, and groups as arguments. We'll add sprite_type and surface.
+sprite_type is currently somewhat unclear. It might be a reflection of the layers in Tiled.
+surface will be an image.
+
+We're using Tiled to import a tileset and output a CSV file, which stands for comma separated values. 
+It's basically an array with values that are seperated with commas, which is what we've used to draw the WORLD_MAP in settings.
+We need some code that accepts the CSV files, which will be a seperate function. Because this function will be used a lot
+we'll dedicate a file to it called support.py. I'll go over this function in a bit.
+
+Inside our Level class we create the map, so we'll have the create_map method read the csv files and process them.
+We create a dictionary layouts (plural), which has 'boundary' as it's key and a function as it's value. The function is the csv_import function
+in support.py, which outputs a list of lists with csv, again, similar to WORLD_MAP. 
+Within this layouts dictionary the sprite_type is set, and now the link between sprite_type and the Tiled layers becomes apparent. 
+The import_csv_layout function takes from the map folder which contains CSV data that is created for each layer in Tiled seperately.
+Just to state the obvious, the values in the CSV hold if a tile in that layer is located at that place in the map ((-1) if no tile is set),
+and if true, the type of tile that is set.
+
+We import three layouts in layouts{}; boundaries, grass and objects. 
+For grass and objects we also want to import graphics. For boundaries we don't.
+The images are structured quite nicely, which I assume is a feature of Tiled.
+We can grab the images with the os module, and create a second dictionary called graphics containing grass and objects as keys.
+Within the values have the function import_folder(). This outputs a list with all the files contained within a specified folder.
+This folder contains all the images that belong to a corresponding CSV layer.
+
+We itterate over all the layouts in layouts with "for style, layout in layouts.items():", we know which style a given CVS is.
+We loop the layout with: "            for row_index, row in enumerate(layout):
+                                            for col_index, col in enumerate(row):
+                        "
+We use enumerate to keep track of the index, since we'll use this to multiply with the TILESIZE to determine where a graphic is drawn.
+If value -1 ignore.
+With all that done we itterate over a layout, know which style it is, and what item needs to drawn, so now we can determine some
+behaviours depending on the style by assigning tiles to groups.
+For the style 'boundaries' we create an object with a x,y position that belongs to group [obstacle_sprites], since the boundaries
+should act like obstacles. We declare the sprite_type to be 'invisible', which is mystifying to me. 'invisible' isn't described anywhere
+in the code. To compare, grass gets sprite_type 'grass' and object gets sprite_type 'object'. Given this contrast I'm fairly sure that
+sprite_style refers to a graphical element exclusively, but why it needs to be declared I do not know.
+
+I'm done analyzing. Not because of completion, since I have uncertainties with regard to sprite_type and the process that drives Tiled,
+but rather because I've been busy for a while now. It's a bit frustrating that here and there a line of code sneaks in that I can't 
+explain all that well, whereas the project as a whole is becoming so large it's becoming increasingly difficult to keep track of all its
+moving parts. The second part is fun, but the first part is detracting from that besides being a nuasance in its own right.
+All in all, guess this level of understanding is sufficient to continue for now.
