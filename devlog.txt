@@ -267,3 +267,16 @@ I decided to use Pixel Studio, on the merit of it being free, while offering the
 Creating pixel art shouldn't be that hard in a technical sense, but it does require practice and a lot of trial and error.
 Unless I find myself enjoying creating pixel art it'll be difficult to obtain a custom crafted tileset. Only time will tell.
 If I don't find myself enjoying creating pixel art I can always obtain free sets from the internet.
+
+#4
+--
+I've been lazy today. Just played some games, looked at Pixel Studio, those kind of things. Seeing how much I struggled over the graphics
+part probably took away from the drive to continue. I like getting stuff done, but I also like to understand what I'm doing, and those two
+things tend to conflict from time to time. Learning deep is probably the best thing to do, instead of just waltzing around and see what
+sticks, but I'd sure love to be one of those people that perform under constraints and just get stuff done to continue onto the next project.
+
+Anyway, up next is the animation of weapons. I'm not sure if the tutorial will implement different weapons, but if they don't I'm
+pretty sure that looking at a way to combine animations is something that I can learn from.
+
+I'd also like to mention that I'm pretty bad with pixel art. I can hide my lack of skills through having a smaller bitmap, but it's become
+apparent that I'm gonna need a lot of practice, probably a tutorial or 10, and a drawing pad might be nice.
