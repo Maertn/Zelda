@@ -6,22 +6,26 @@ from debug import debug
 from support import *
 from random import choice
 from weapon import Weapon
+from ui import UI
 
 class Level:
     def __init__(self):
 
-        #get the display surface
+        # get the display surface
         self.display_surface = pg.display.get_surface()
 
-        #sprite group setup
+        # sprite group setup
         self.visible_sprites = YSortCameraGroup()
         self.obstacle_sprites = pg.sprite.Group()
 
-        #attack sprites
+        # attack sprites
         self.current_attack = None
 
-        #sprite setup
+        # sprite setup
         self.create_map()
+
+        # user interface
+        self.ui = UI()
 
     def create_map(self):
         layouts = {
@@ -63,6 +67,7 @@ class Level:
         #update and draw the game
         self.visible_sprites.custom_draw(self.player)
         self.visible_sprites.update()
+        self.ui.display(self.player)
 
 class YSortCameraGroup(pg.sprite.Group):
     def __init__(self):

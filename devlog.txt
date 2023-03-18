@@ -296,3 +296,27 @@ the property of groups should be inherited fom Sprite, which I forgot to give in
 
 The next section will be about UI. I already know how that works, at least in a basic sense. We'll be creating objects that get their
 own blit on the screen. It'll be interesting to see how it'll be implemented.
+
+#2
+--
+To have data to display in our UI we create a dictionary in the Player class that contains the stats.
+We create a new file, ui.py, where we create a UI class.
+We call UI from level.py, since that's where we're rendering everything.
+In settings.py we set dimensions, font and font sizefor the UI.
+
+#3
+--
+Creating the UI turned out rather complicated after all.
+Setting the x, y position can be somewhat confusing. I just waited for the tutorial to provide them, so
+I'm not sure how to easily choose them for myself. I think it's easiest to work in fractions of the display resolution.
+All this OOP is getting kinda wacky. When I'm thinking about the functionality of it all I find myself retracing 
+the interior of the seperate classes, and how they're interacting and what is called where.
+Some functions being constructed out of several objects, such as the attack, while other functions, such as rendering to display,
+is being done in level and ui seperately. It's very interesting to witness this emerging ecosystem of seperate files and classes 
+whirring about, but also intimidating, especially since I'm not fluent in the syntax of OOP. I find myself wanting to conceptualize
+other configurations that would be equally functional, maybe find a way of organizing the code that seems completely intuitive to me, 
+but I'm drawing a bit of a blank. I'm getting more and more excited to start my own project from scratch and really figure this stuff out!
+
+Anyway, UI is done. Next up is the addition of a magic system, which should be mostly a rehash of the attack. Good opportunity to 
+retrace the set up for attacking. I've also seen that after the magic we'll be adding enemies. Curious to see how the AI will work,
+and how attacking / damage will be fleshed out.

@@ -18,7 +18,6 @@ class Player(pg.sprite.Sprite):
 
         # movement
         self.direction = pg.math.Vector2()
-        self.speed = 5
         self.attacking = False
         self.attack_cooldown = 400
         self.attack_time = None
@@ -32,6 +31,13 @@ class Player(pg.sprite.Sprite):
         self.can_switch_weapon = True
         self.weapon_switch_time = None
         self.switch_duration_cooldown = 200
+
+        #stats
+        self.stats = {'health': 100, 'energy': 60, 'attack': 10, 'magic': 4, 'speed': 5}
+        self.health = self.stats['health']
+        self.energy = self.stats['energy']
+        self.exp = 123
+        self.speed = self.stats['speed']
 
     def import_player_assets(self):
         character_path = "graphics/player/"
@@ -164,4 +170,3 @@ class Player(pg.sprite.Sprite):
         self.get_status()
         self.move(speed=self.speed)
         self.animate()
-        debug(self.status)
