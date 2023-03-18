@@ -320,3 +320,7 @@ but I'm drawing a bit of a blank. I'm getting more and more excited to start my 
 Anyway, UI is done. Next up is the addition of a magic system, which should be mostly a rehash of the attack. Good opportunity to 
 retrace the set up for attacking. I've also seen that after the magic we'll be adding enemies. Curious to see how the AI will work,
 and how attacking / damage will be fleshed out.
+
+#4
+--
+Magic and magic UI are done.
