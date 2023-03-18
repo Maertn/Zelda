@@ -280,3 +280,19 @@ pretty sure that looking at a way to combine animations is something that I can 
 
 I'd also like to mention that I'm pretty bad with pixel art. I can hide my lack of skills through having a smaller bitmap, but it's become
 apparent that I'm gonna need a lot of practice, probably a tutorial or 10, and a drawing pad might be nice.
+
+2023-03-17
+#1
+--
+Created the weapons, including animations. weapon.py contains the Weapon class.
+The weapon to be selected is an attribute of the player. Switching weapons is assigned to 'q'.
+The weapon class is called in level.py in the method create_attack(), where it is also rendered.
+create_attack is used as an attribute of the player. The method is activated by pressing 'space'.
+All the methods used we're easy to follow since they've also been used in creating and drawing the player.
+
+One thing I'd like to mention is that I made a mistake when creating the Weapons class. Weapon takes three argments: self,
+player and groups. Weapon inherits from the Sprite class. self is just OOP, player is assigned in the script, but 
+the property of groups should be inherited fom Sprite, which I forgot to give in the super().__init__().
+
+The next section will be about UI. I already know how that works, at least in a basic sense. We'll be creating objects that get their
+own blit on the screen. It'll be interesting to see how it'll be implemented.
