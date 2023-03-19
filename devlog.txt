@@ -324,3 +324,26 @@ and how attacking / damage will be fleshed out.
 #4
 --
 Magic and magic UI are done.
+
+--
+2023-03-19
+#1
+--
+Just finished the trickiest part so far, the enemies.
+I'm not going to go over all of the code. I want to have this tutorial finished by tomorrow.
+It is true that I'm not keeping track of all the interactions. I think if I'd want to do that, I'd have to create everything myself.
+A key component that's missing is interactions between the player and monsters. What we do have is a trigger for the enemies to walk
+over and attack. I've noticed some jank where you can enter and exit the attack radius, which'll instantly reset the enemy's attack timer.
+This means that you can't bob and weave, since baiting an attack won't give you any cooldown.
+Finishing this tutorial won't provide me with a viable prototype. Maybe the bare bones of one, after reskinning. There's a lot of potential
+tho. If you'd increase the available moves for an enemy, some telegraphing, and proper cooldowns, you'd have an enemy that is fun to fight.
+The raccoon looks very cute!
+
+I guess the hard part of game development isn't the coding necessarily, even though admittedly the coding is quite hard. The hard part would
+be to continue creating after delivering a succesful prototype. And getting that prototype is a lot of work to begin with. Creating something
+that's fun to play is gonna be extremely challenging. Getting player movement that feels energetic and responsive is one thing. The next
+thing is creating enemies that form a challenge within the context of the moveset that the player is given. Combining these two elements
+would be a succesful core I'd reckon.
+
+It's gonne be a challenge to finish this tutorial before tomorrow. Let's push to git, take the dog for a walk, and then start the 
+part where we implement interactions between the different entities.
