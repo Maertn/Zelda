@@ -347,3 +347,8 @@ would be a succesful core I'd reckon.
 
 It's gonne be a challenge to finish this tutorial before tomorrow. Let's push to git, take the dog for a walk, and then start the 
 part where we implement interactions between the different entities.
+
+#2
+--
+Finished the interactions between player and enemies. I'm missing a knockback effect if enemies damage you, but that's easy to set up.
+This part was fun. Feels like things are coming together. It's also fun to have the different classes call each other.
