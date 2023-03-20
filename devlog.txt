@@ -362,3 +362,8 @@ I've got a deadline to keep, so I'm skipping the analysis. I might come back to 
 #4
 --
 Finished magic system.
+
+2023-03-20
+#1
+--
+Starting the bit where we create an interface for menus.
