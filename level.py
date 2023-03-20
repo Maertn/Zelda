@@ -87,8 +87,6 @@ class Level:
                                       self.damage_player,
                                       self.trigger_death_particles)
 
-
-
     def create_attack(self):
         self.current_attack = Weapon(self.player,[self.visible_sprites, self.attack_sprites])
 
@@ -98,10 +96,6 @@ class Level:
 
         if style == 'flame':
             self.magic_player.flames(self.player, cost, [self.visible_sprites, self.attack_sprites])
-        
-        print(style)
-        print(strength)
-        print(cost)
 
     def destroy_attack(self):
         if self.current_attack:
