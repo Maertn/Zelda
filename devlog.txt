@@ -358,3 +358,7 @@ This part was fun. Feels like things are coming together. It's also fun to have 
 Finished with particle implementation. It's a bit of a roundabout way, since loading the particles every single time
 would slow down the program. So we need to particles loaded.
 I've got a deadline to keep, so I'm skipping the analysis. I might come back to it at a later point.
+
+#4
+--
+Finished magic system.
